@@ -1,0 +1,1 @@
+export { AmbienteProceso } from "./AmbienteProceso";

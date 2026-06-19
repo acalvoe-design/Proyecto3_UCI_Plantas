@@ -1,16 +1,21 @@
 import React, { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link, useLocation, useNavigate } from 'react-router-dom';
 import { PlantProvider } from './context/PlantContext';
 import { usePlant } from './hooks/usePlant';
 import { Dashboard } from './screens/Dashboard';
-import { ControlPanel } from './screens/ControlPanel';
-import { ConfigurationScreen } from './screens/ConfigurationScreen';
+import { AmbienteProceso } from './screens/AmbienteProceso';
+import { AlertasScreen } from './screens/AlertasScreen';
+import { SettingsScreen } from './screens/SettingsScreen';
 import './App.css';
 
 function AppContent() {
   const { initializeSystem, systemActive, error } = usePlant();
   const [initialized, setInitialized] = useState(false);
+  const [alertCount, setAlertCount] = useState(0);
   const location = useLocation();
+  const navigate = useNavigate();
+
+  const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
 
   useEffect(() => {
     initializeSystem().finally(() => {
@@ -18,24 +23,51 @@ function AppContent() {
     });
   }, [initializeSystem]);
 
+  // Fetch alert count every 5 seconds
+  useEffect(() => {
+    const fetchAlertCount = async () => {
+      try {
+        const response = await fetch(`${API_BASE_URL}/api/alerts`);
+        if (response.ok) {
+          const data = await response.json();
+          setAlertCount(data.alerts ? data.alerts.length : 0);
+        }
+      } catch (err) {
+        console.error('Error fetching alerts:', err);
+      }
+    };
+
+    fetchAlertCount();
+    const interval = setInterval(fetchAlertCount, 5000);
+    return () => clearInterval(interval);
+  }, [API_BASE_URL]);
+
+  const handleSettingsClick = () => {
+    navigate('/settings');
+  };
+
+  const handleAlertsNotificationClick = () => {
+    navigate('/config');
+  };
+
   return (
     <div className="app">
       <header className="app-header">
         <div className="header-container">
           <h1 className="app-title">UCI para Plantas</h1>
           <div className="header-icons">
-            <button className="header-icon">
+            <button className="header-icon" onClick={handleSettingsClick} title="Configuración">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <circle cx="12" cy="12" r="1"></circle>
                 <path d="M12 1v6m0 6v6"></path>
               </svg>
             </button>
-            <button className="header-icon">
+            <button className="header-icon" onClick={handleAlertsNotificationClick} title="Alertas">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <circle cx="12" cy="12" r="10"></circle>
                 <path d="M12 6v6l4 2"></path>
               </svg>
-              <div className="notification-badge">1</div>
+              {alertCount > 0 && <div className="notification-badge">{alertCount}</div>}
             </button>
           </div>
         </div>
@@ -58,8 +90,9 @@ function AppContent() {
         {initialized && (
           <Routes>
             <Route path="/" element={<Dashboard />} />
-            <Route path="/control" element={<ControlPanel />} />
-            <Route path="/config" element={<ConfigurationScreen />} />
+            <Route path="/control" element={<AmbienteProceso />} />
+            <Route path="/config" element={<AlertasScreen />} />
+            <Route path="/settings" element={<SettingsScreen />} />
           </Routes>
         )}
       </main>

@@ -175,6 +175,144 @@ def toggle_rules():
     return jsonify({"status": status}), 200
 
 
+@app.route('/api/alerts', methods=['GET'])
+def get_alerts():
+    """Generate system alerts based on current state and thresholds"""
+    alerts = []
+    current_data = data_repository.get_current_data() or {}
+    sensor_status = sensor_manager.get_sensor_status()
+    actuator_status = actuator_manager.get_actuator_status()
+    config = plant_system.plant_config
+    plant_name = config.get("name", "Planta")
+    
+    # Get custom thresholds from config
+    temp_max = config.get("temp_max", 28)
+    humidity_max = config.get("humidity_max", 85)
+    humidity_min = config.get("humidity_min", 40)
+    light_min = config.get("light_min", 1000)
+    
+    # Alert 1: Low soil humidity
+    soil_humidity = current_data.get("soil_percent", 0)
+    if soil_humidity < 30 and soil_humidity > 0:
+        alerts.append({
+            "id": len(alerts) + 1,
+            "plant": plant_name,
+            "type": "warning",
+            "title": "Humedad del suelo muy baja",
+            "description": f"La humedad del suelo está en {soil_humidity}%. La planta necesita agua urgentemente.",
+            "status": "Atención requerida"
+        })
+    
+    # Alert 2: High soil humidity
+    if soil_humidity > 80:
+        alerts.append({
+            "id": len(alerts) + 1,
+            "plant": plant_name,
+            "type": "warning",
+            "title": "Humedad del suelo muy alta",
+            "description": f"La humedad del suelo está en {soil_humidity}%. Reduce el riego para evitar pudrición de raíces.",
+            "status": "Atención requerida"
+        })
+    
+    # Alert 3: High temperature (using custom threshold)
+    temperature = current_data.get("temperature", 0)
+    if temperature > temp_max and temperature > 0:
+        alerts.append({
+            "id": len(alerts) + 1,
+            "plant": plant_name,
+            "type": "warning",
+            "title": f"Temperatura muy elevada (máximo: {temp_max}°C)",
+            "description": f"La temperatura es {temperature}°C. Activa el ventilador o mejora la ventilación.",
+            "status": "Atención requerida"
+        })
+    
+    # Alert 4: Low temperature
+    if temperature > 0 and temperature < 15:
+        alerts.append({
+            "id": len(alerts) + 1,
+            "plant": plant_name,
+            "type": "warning",
+            "title": "Temperatura muy baja",
+            "description": f"La temperatura es {temperature}°C. Asegúrate de que la planta esté en un lugar más cálido.",
+            "status": "Atención requerida"
+        })
+    
+    # Alert 5: Low air humidity (using custom threshold)
+    air_humidity = current_data.get("dht_humidity", 0)
+    if air_humidity < humidity_min and air_humidity > 0:
+        alerts.append({
+            "id": len(alerts) + 1,
+            "plant": plant_name,
+            "type": "warning",
+            "title": f"Humedad del aire baja (mínimo: {humidity_min}%)",
+            "description": f"La humedad relativa es {air_humidity}%. Considera usar el humidificador.",
+            "status": "Atención requerida"
+        })
+    
+    # Alert 6: High air humidity (using custom threshold)
+    if air_humidity > humidity_max:
+        alerts.append({
+            "id": len(alerts) + 1,
+            "plant": plant_name,
+            "type": "warning",
+            "title": f"Humedad del aire muy alta (máximo: {humidity_max}%)",
+            "description": f"La humedad relativa es {air_humidity}%. Mejora la ventilación para evitar hongos.",
+            "status": "Atención requerida"
+        })
+    
+    # Alert 7: Low light (using custom threshold)
+    light = current_data.get("lux", 0)
+    if light < light_min and light > 0:
+        alerts.append({
+            "id": len(alerts) + 1,
+            "plant": plant_name,
+            "type": "warning",
+            "title": f"Luz insuficiente (mínimo: {light_min} lux)",
+            "description": f"Nivel de luz: {light} lux. La planta necesita más luz. Aumenta las horas de LED o reubícala.",
+            "status": "Atención requerida"
+        })
+    
+    # Alert 8: Sensor errors (disconnected sensors)
+    temp_sensor = sensor_status.get("temperature", {})
+    if not temp_sensor.get("connected", True) or (temp_sensor.get("value", 0) == 0 and temperature == 0):
+        alerts.append({
+            "id": len(alerts) + 1,
+            "plant": plant_name,
+            "type": "error",
+            "title": "Sensor de temperatura desconectado",
+            "description": "El sensor de temperatura no responde. Verifica la conexión del dispositivo UCI.",
+            "status": "Error"
+        })
+    
+    humidity_sensor = sensor_status.get("air_humidity", {})
+    if not humidity_sensor.get("connected", True) or (humidity_sensor.get("value", 0) == 0 and air_humidity == 0):
+        alerts.append({
+            "id": len(alerts) + 1,
+            "plant": plant_name,
+            "type": "error",
+            "title": "Sensor de humedad desconectado",
+            "description": "El sensor de humedad no responde. Verifica la conexión del dispositivo UCI.",
+            "status": "Error"
+        })
+    
+    # Alert 9: System idle (no active actuators and low light)
+    if light < light_min and not any([
+        actuator_status.get("fan", {}).get("active", False),
+        actuator_status.get("humidifier", {}).get("active", False),
+        actuator_status.get("led", {}).get("active", False)
+    ]):
+        alerts.append({
+            "id": len(alerts) + 1,
+            "plant": plant_name,
+            "type": "completed",
+            "title": "Sistema en modo reposo",
+            "description": "El sistema está en reposo. Todos los actuadores están apagados.",
+            "status": "Completado"
+        })
+    
+    return jsonify({"alerts": alerts}), 200
+
+
 # ===== ARDUINO DATA ENDPOINT =====
 
 @app.route('/sensor_data', methods=['POST'])

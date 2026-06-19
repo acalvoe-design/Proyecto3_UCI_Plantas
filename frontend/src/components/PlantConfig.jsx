@@ -11,7 +11,7 @@ export const PlantConfig = () => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
-      [name]: value,
+      [name]: isNaN(value) ? value : parseFloat(value),
     });
   };
 
@@ -40,8 +40,20 @@ export const PlantConfig = () => {
             <span>{plantConfig.type}</span>
           </div>
           <div className="config-item">
-            <label>Nivel de Cuidado:</label>
-            <span>{plantConfig.care_level}</span>
+            <label>Temperatura Máxima:</label>
+            <span>{plantConfig.temp_max || 28}°C</span>
+          </div>
+          <div className="config-item">
+            <label>Humedad Mínima:</label>
+            <span>{plantConfig.humidity_min || 40}%</span>
+          </div>
+          <div className="config-item">
+            <label>Humedad Máxima:</label>
+            <span>{plantConfig.humidity_max || 85}%</span>
+          </div>
+          <div className="config-item">
+            <label>Luz Mínima:</label>
+            <span>{plantConfig.light_min || 1000} lux</span>
           </div>
         </div>
       </div>
@@ -75,17 +87,56 @@ export const PlantConfig = () => {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="care_level">Nivel de Cuidado:</label>
-          <select
-            id="care_level"
-            name="care_level"
-            value={formData.care_level}
+          <label htmlFor="temp_max">Temperatura Máxima para Activar Ventilador (°C):</label>
+          <input
+            type="number"
+            id="temp_max"
+            name="temp_max"
+            value={formData.temp_max || 28}
             onChange={handleChange}
-          >
-            <option value="bajo">Bajo</option>
-            <option value="normal">Normal</option>
-            <option value="alto">Alto</option>
-          </select>
+            step="0.1"
+            min="0"
+            max="50"
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="humidity_min">Humedad Mínima del Aire (%):</label>
+          <input
+            type="number"
+            id="humidity_min"
+            name="humidity_min"
+            value={formData.humidity_min || 40}
+            onChange={handleChange}
+            step="1"
+            min="0"
+            max="100"
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="humidity_max">Humedad Máxima del Aire (%):</label>
+          <input
+            type="number"
+            id="humidity_max"
+            name="humidity_max"
+            value={formData.humidity_max || 85}
+            onChange={handleChange}
+            step="1"
+            min="0"
+            max="100"
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="light_min">Luz Mínima Requerida (lux):</label>
+          <input
+            type="number"
+            id="light_min"
+            name="light_min"
+            value={formData.light_min || 1000}
+            onChange={handleChange}
+            step="100"
+            min="0"
+            max="10000"
+          />
         </div>
         <div className="form-actions">
           <button type="submit" className="submit-btn">
