@@ -1,0 +1,1 @@
+export { PlantaEstadoVaco } from "./PlantaEstadoVaco";
