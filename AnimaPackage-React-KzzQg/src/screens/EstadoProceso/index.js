@@ -1,0 +1,1 @@
+export { EstadoProceso } from "./EstadoProceso";
