@@ -1,0 +1,48 @@
+.control-panel {
+  animation: fadeIn 0.3s ease-in;
+}
+
+.automation-control {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.automation-enabled {
+  background: #10b981;
+  color: white;
+}
+
+.automation-enabled:hover {
+  background: #059669;
+}
+
+.automation-disabled {
+  background: #ef4444;
+  color: white;
+}
+
+.automation-disabled:hover {
+  background: #dc2626;
+}
+
+.actuators-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.no-data {
+  text-align: center;
+  color: #999;
+  padding: 2rem 1rem;
+  font-size: 0.9rem;
+}
+
+@media (min-width: 601px) {
+  .actuators-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
