@@ -1,0 +1,22 @@
+.configuration-screen {
+  animation: fadeIn 0.3s ease-in;
+}
+
+.info-card {
+  background: #f0f7ff;
+  border-left: 4px solid #667eea;
+}
+
+.info-title {
+  color: #667eea;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.info-text {
+  color: #667eea;
+  line-height: 1.6;
+  font-size: 0.9rem;
+  margin: 0;
+}

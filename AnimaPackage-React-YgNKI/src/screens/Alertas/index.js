@@ -1,0 +1,1 @@
+export { Alertas } from "./Alertas";

@@ -1,0 +1,44 @@
+.sensor-display {
+  background: white;
+  border: 1px solid #f0f0f0;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  transition: all 0.2s ease;
+}
+
+.sensor-display:hover {
+  border-color: #e0e0e0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.sensor-label {
+  font-size: 0.8rem;
+  color: #999;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 500;
+}
+
+.sensor-value {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #667eea;
+  margin-bottom: 0.5rem;
+}
+
+.sensor-status {
+  font-size: 0.75rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  background: #f0f0f0;
+  color: #666;
+  display: inline-block;
+  font-weight: 500;
+}
+
+.sensor-status.OK {
+  background: #dbeafe;
+  color: #0284c7;
+}

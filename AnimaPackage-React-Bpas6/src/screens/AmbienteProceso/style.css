@@ -1,0 +1,626 @@
+.ambiente-proceso {
+  align-items: flex-start;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  height: 874px;
+  position: relative;
+}
+
+.ambiente-proceso .container {
+  align-items: flex-start;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  height: 874px;
+  max-width: 430px;
+  position: relative;
+  width: 430px;
+}
+
+.ambiente-proceso .div {
+  align-items: flex-start;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  padding: 0px 0px 24px;
+}
+
+.ambiente-proceso .container-2 {
+  align-items: center;
+  display: flex;
+  flex: 0 0 auto;
+  justify-content: space-between;
+  padding: 56px 20px 4px;
+  position: relative;
+  width: 430px;
+}
+
+.ambiente-proceso .container-3 {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 190.55px;
+}
+
+.ambiente-proceso .paragraph {
+  align-items: flex-start;
+  align-self: stretch;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+}
+
+.ambiente-proceso .dispositivo {
+  color: #99a1af;
+  font-family: "Inter", Helvetica;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 1.12px;
+  line-height: 15px;
+  margin-top: -1px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.ambiente-proceso .text-wrapper {
+  color: #1e2939;
+  font-family: "Inter", Helvetica;
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 36px;
+  margin-right: -0.45px;
+  margin-top: -1px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.ambiente-proceso .container-4 {
+  align-items: center;
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 8px;
+  position: relative;
+}
+
+.ambiente-proceso .img {
+  height: 39px;
+  margin-bottom: -2.5px;
+  margin-left: -1.5px;
+  margin-top: -0.5px;
+  position: relative;
+  width: 39px;
+}
+
+.ambiente-proceso .container-5 {
+  align-items: flex-start;
+  display: inline-flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  position: relative;
+}
+
+.ambiente-proceso .button {
+  height: 39px;
+  margin-bottom: -2.5px;
+  margin-left: -1.5px;
+  margin-right: -1.5px;
+  margin-top: -0.5px;
+  position: relative;
+  width: 39px;
+}
+
+.ambiente-proceso .div-wrapper {
+  align-items: center;
+  background-color: #ff6900;
+  border-radius: 9999px;
+  display: flex;
+  height: 16px;
+  justify-content: center;
+  left: 24px;
+  position: absolute;
+  top: -2px;
+  width: 16px;
+}
+
+.ambiente-proceso .text {
+  height: 13.5px;
+  position: relative;
+  width: 5.55px;
+}
+
+.ambiente-proceso .text-wrapper-2 {
+  color: #ffffff;
+  font-family: "Inter", Helvetica;
+  font-size: 9px;
+  font-weight: 500;
+  left: 0;
+  letter-spacing: 0;
+  line-height: 13.5px;
+  position: absolute;
+  top: 1px;
+  white-space: nowrap;
+}
+
+.ambiente-proceso .container-6 {
+  align-items: flex-start;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  padding: 20px 16px;
+  position: relative;
+  width: 430px;
+}
+
+.ambiente-proceso .text-wrapper-3 {
+  color: #364153;
+  font-family: "Inter", Helvetica;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 20px;
+  margin-top: -1px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.ambiente-proceso .el-sistema-controla-wrapper {
+  align-items: flex-start;
+  align-self: stretch;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  padding: 6px 0px 0px;
+  position: relative;
+  width: 100%;
+}
+
+.ambiente-proceso .el-sistema-controla {
+  color: #99a1af;
+  font-family: "Inter", Helvetica;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 18px;
+  margin-top: -1px;
+  position: relative;
+  width: 398px;
+}
+
+.ambiente-proceso .actuatorrow-margin {
+  align-items: center;
+  align-self: stretch;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  padding: 16px 0px 0px;
+  position: relative;
+  width: 100%;
+}
+
+.ambiente-proceso .actuator-row {
+  align-items: center;
+  background-color: #f9fafb;
+  border-radius: 16px;
+  display: flex;
+  flex: 0 0 auto;
+  gap: 12px;
+  padding: 12px 16px;
+  position: relative;
+  width: 398px;
+}
+
+.ambiente-proceso .ambiente-view-wrapper {
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 16777200px;
+  box-shadow:
+    0px 1px 1px #0000001a,
+    0px 1px 1.5px #0000001a;
+  display: flex;
+  height: 36px;
+  justify-content: center;
+  position: relative;
+  width: 36px;
+}
+
+.ambiente-proceso .ambiente-view {
+  height: 18px;
+  position: relative;
+  width: 18px;
+}
+
+.ambiente-proceso .vector {
+  height: 95.83%;
+  left: 29.17%;
+  position: absolute;
+  top: 4.17%;
+  width: 70.83%;
+}
+
+.ambiente-proceso .container-7 {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+}
+
+.ambiente-proceso .text-wrapper-4 {
+  color: #1e2939;
+  font-family: "Inter", Helvetica;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 20px;
+  margin-top: -1px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.ambiente-proceso .text-wrapper-5 {
+  color: #99a1af;
+  font-family: "Inter", Helvetica;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 16px;
+  margin-top: -1px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.ambiente-proceso .status-badge {
+  align-items: center;
+  background-color: #edf7ed;
+  border-radius: 16777200px;
+  display: flex;
+  height: 15px;
+  justify-content: center;
+  position: relative;
+  width: 51px;
+}
+
+.ambiente-proceso .text-2 {
+  height: 10px;
+  position: relative;
+  width: 33.84px;
+}
+
+.ambiente-proceso .text-wrapper-6 {
+  color: #4a8a4a;
+  font-family: "Inter", Helvetica;
+  font-size: 10px;
+  font-weight: 400;
+  left: 0;
+  letter-spacing: 0;
+  line-height: 10px;
+  position: absolute;
+  top: 0;
+  white-space: nowrap;
+}
+
+.ambiente-proceso .switch {
+  align-items: flex-start;
+  background-color: #d1d5db;
+  border-radius: 16777200px;
+  display: flex;
+  flex-direction: column;
+  height: 24px;
+  justify-content: center;
+  position: relative;
+  width: 44px;
+}
+
+.ambiente-proceso .text-transform {
+  height: 20px;
+  position: relative;
+  width: 20px;
+}
+
+.ambiente-proceso .text-3 {
+  background-color: #ffffff;
+  border-radius: 16777200px;
+  box-shadow:
+    0px 1px 2px #0000001a,
+    0px 1px 3px #0000001a;
+  height: 20px;
+  left: 2px;
+  position: relative;
+  width: 20px;
+}
+
+.ambiente-proceso .container-margin {
+  align-items: flex-start;
+  align-self: stretch;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  padding: 12px 0px 0px;
+  position: relative;
+  width: 100%;
+}
+
+.ambiente-proceso .container-8 {
+  align-items: center;
+  align-self: stretch;
+  background-color: #f9fafb;
+  border-radius: 16px;
+  display: flex;
+  flex: 0 0 auto;
+  gap: 12px;
+  padding: 12px 16px;
+  position: relative;
+  width: 100%;
+}
+
+.ambiente-proceso .vector-2 {
+  height: 82.08%;
+  left: 8.33%;
+  position: absolute;
+  top: 17.92%;
+  width: 91.67%;
+}
+
+.ambiente-proceso .vector-3 {
+  height: 91.58%;
+  left: 33.71%;
+  position: absolute;
+  top: 8.42%;
+  width: 66.29%;
+}
+
+.ambiente-proceso .text-transform-wrapper {
+  align-items: flex-start;
+  background-color: #4a8a4a;
+  border-radius: 16777200px;
+  display: flex;
+  flex-direction: column;
+  height: 24px;
+  justify-content: center;
+  position: relative;
+  width: 44px;
+}
+
+.ambiente-proceso .text-4 {
+  background-color: #ffffff;
+  border-radius: 16777200px;
+  box-shadow:
+    0px 1px 2px #0000001a,
+    0px 1px 3px #0000001a;
+  height: 20px;
+  left: 22px;
+  position: relative;
+  width: 20px;
+}
+
+.ambiente-proceso .button-wrapper {
+  align-items: flex-start;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  padding: 10px 16px 0px;
+  position: relative;
+  width: 430px;
+}
+
+.ambiente-proceso .button-2 {
+  all: unset;
+  align-items: center;
+  align-self: stretch;
+  background-color: #4a8a4a;
+  border-radius: 16px;
+  box-shadow:
+    0px 1px 1px #0000001a,
+    0px 1px 1.5px #0000001a;
+  box-sizing: border-box;
+  display: flex;
+  height: 52px;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+}
+
+.ambiente-proceso .text-wrapper-7 {
+  color: #ffffff;
+  font-family: "Inter", Helvetica;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 21px;
+  position: relative;
+  text-align: center;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.ambiente-proceso .navigation {
+  align-items: flex-start;
+  align-self: stretch;
+  background-color: #ffffff;
+  border-color: #f3f4f6;
+  border-top-style: solid;
+  border-top-width: 1px;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+}
+
+.ambiente-proceso .container-9 {
+  align-items: flex-start;
+  align-self: stretch;
+  display: inline-flex;
+  flex: 0 0 auto;
+  position: relative;
+}
+
+.ambiente-proceso .button-3 {
+  all: unset;
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 12px 0px;
+}
+
+.ambiente-proceso .icon {
+  height: 22px;
+  position: relative;
+  width: 22px;
+}
+
+.ambiente-proceso .vector-4 {
+  height: 95.83%;
+  left: 12.41%;
+  position: absolute;
+  top: 4.17%;
+  width: 87.59%;
+}
+
+.ambiente-proceso .vector-5 {
+  height: 54.17%;
+  left: 4.17%;
+  position: absolute;
+  top: 45.83%;
+  width: 95.83%;
+}
+
+.ambiente-proceso .navigation-label-wrapper {
+  height: 15px;
+  position: relative;
+  width: 29.77px;
+}
+
+.ambiente-proceso .navigation-label {
+  color: #9ca3af;
+  font-family: "Inter", Helvetica;
+  font-size: 10px;
+  font-weight: 500;
+  left: 0;
+  letter-spacing: 0;
+  line-height: 15px;
+  position: absolute;
+  text-align: center;
+  top: 1px;
+  white-space: nowrap;
+}
+
+.ambiente-proceso .vector-6 {
+  height: 37.50%;
+  left: 4.17%;
+  position: absolute;
+  top: 62.50%;
+  width: 95.83%;
+}
+
+.ambiente-proceso .vector-7 {
+  height: 75.00%;
+  left: 4.17%;
+  position: absolute;
+  top: 25.00%;
+  width: 95.83%;
+}
+
+.ambiente-proceso .vector-8 {
+  height: 87.50%;
+  left: 4.17%;
+  position: absolute;
+  top: 12.50%;
+  width: 95.83%;
+}
+
+.ambiente-proceso .text-5 {
+  height: 15px;
+  position: relative;
+  width: 45.73px;
+}
+
+.ambiente-proceso .navigation-label-2 {
+  color: #4a8a4a;
+  font-family: "Inter", Helvetica;
+  font-size: 10px;
+  font-weight: 500;
+  left: 0;
+  letter-spacing: 0;
+  line-height: 15px;
+  position: absolute;
+  text-align: center;
+  top: 1px;
+  white-space: nowrap;
+}
+
+.ambiente-proceso .text-6 {
+  background-color: #4a8a4a;
+  border-radius: 16777200px;
+  height: 3px;
+  left: 56px;
+  position: absolute;
+  top: 0;
+  width: 32px;
+}
+
+.ambiente-proceso .button-4 {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 12px 0px;
+}
+
+.ambiente-proceso .vector-9 {
+  height: 16.67%;
+  left: 38.62%;
+  position: absolute;
+  top: 83.33%;
+  width: 61.38%;
+}
+
+.ambiente-proceso .vector-10 {
+  height: 95.83%;
+  left: 8.34%;
+  position: absolute;
+  top: 4.17%;
+  width: 91.66%;
+}
+
+.ambiente-proceso .alert-count-wrapper {
+  align-items: center;
+  background-color: #ff6900;
+  border-radius: 9999px;
+  display: flex;
+  height: 14px;
+  justify-content: center;
+  left: 14px;
+  position: absolute;
+  top: -4px;
+  width: 14px;
+}
+
+.ambiente-proceso .alert-count {
+  color: #ffffff;
+  font-family: "Inter", Helvetica;
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 12px;
+  position: relative;
+  text-align: center;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.ambiente-proceso .text-7 {
+  height: 15px;
+  position: relative;
+  width: 34.03px;
+}

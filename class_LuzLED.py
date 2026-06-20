@@ -1,3 +1,6 @@
+from class_Actuador import Actuador
+
+
 class LuzLED(Actuador):
     def activar(self):
         self.activo = True

@@ -1,0 +1,688 @@
+.estado-proceso {
+  align-items: center;
+  background-color: #d1d5db;
+  display: flex;
+  height: 874px;
+  justify-content: center;
+  min-width: 434px;
+  position: relative;
+  width: 100%;
+}
+
+.estado-proceso .container {
+  align-items: flex-start;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  height: 874px;
+  max-width: 430px;
+  position: relative;
+  width: 430px;
+}
+
+.estado-proceso .planta-view-wrapper {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+}
+
+.estado-proceso .planta-view {
+  align-items: flex-start;
+  align-self: stretch;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  height: 630.5px;
+  padding: 0px 0px 24px;
+  position: relative;
+  width: 100%;
+}
+
+.estado-proceso .div {
+  align-items: center;
+  display: flex;
+  flex: 0 0 auto;
+  justify-content: space-between;
+  padding: 56px 20px 4px;
+  position: relative;
+  width: 430px;
+}
+
+.estado-proceso .container-2 {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 190.55px;
+}
+
+.estado-proceso .paragraph {
+  align-items: flex-start;
+  align-self: stretch;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+}
+
+.estado-proceso .label {
+  color: #99a1af;
+  font-family: "Inter", Helvetica;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 1.12px;
+  line-height: 15px;
+  margin-top: -1px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.estado-proceso .title {
+  color: #1e2939;
+  font-family: "Inter", Helvetica;
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 36px;
+  margin-right: -0.45px;
+  margin-top: -1px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.estado-proceso .container-3 {
+  align-items: center;
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 8px;
+  position: relative;
+}
+
+.estado-proceso .img {
+  height: 39px;
+  margin-bottom: -2.5px;
+  margin-left: -1.5px;
+  margin-top: -0.5px;
+  position: relative;
+  width: 39px;
+}
+
+.estado-proceso .container-4 {
+  align-items: flex-start;
+  display: inline-flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  position: relative;
+}
+
+.estado-proceso .button {
+  height: 39px;
+  margin-bottom: -2.5px;
+  margin-left: -1.5px;
+  margin-right: -1.5px;
+  margin-top: -0.5px;
+  position: relative;
+  width: 39px;
+}
+
+.estado-proceso .text-wrapper {
+  align-items: center;
+  background-color: #ff6900;
+  border-radius: 9999px;
+  display: flex;
+  height: 16px;
+  justify-content: center;
+  left: 24px;
+  position: absolute;
+  top: -2px;
+  width: 16px;
+}
+
+.estado-proceso .text {
+  height: 13.5px;
+  position: relative;
+  width: 5.55px;
+}
+
+.estado-proceso .notification-count {
+  color: #ffffff;
+  font-family: "Inter", Helvetica;
+  font-size: 9px;
+  font-weight: 500;
+  left: 0;
+  letter-spacing: 0;
+  line-height: 13.5px;
+  position: absolute;
+  top: 1px;
+  white-space: nowrap;
+}
+
+.estado-proceso .plant-name-wrapper {
+  align-items: flex-start;
+  display: flex;
+  flex: 0 0 auto;
+  justify-content: center;
+  padding: 9px 0px 1px;
+  position: relative;
+  width: 430px;
+}
+
+.estado-proceso .plant-name {
+  color: #364153;
+  font-family: "Inter", Helvetica;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 22px;
+  margin-top: -1px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.estado-proceso .container-5 {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 260.5px;
+  padding: 16px 0px 0px;
+  position: relative;
+  width: 430px;
+}
+
+.estado-proceso .container-6 {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  height: 210px;
+  position: relative;
+  width: 210px;
+}
+
+.estado-proceso .icon-transform {
+  align-self: stretch;
+  height: 210px;
+  position: relative;
+  width: 100%;
+}
+
+.estado-proceso .icon {
+  height: 210px;
+  position: relative;
+  transform: rotate(-90deg);
+  width: 210px;
+}
+
+.estado-proceso .vector {
+  height: 93.81%;
+  left: 6.19%;
+  position: absolute;
+  top: 6.19%;
+  transform: rotate(90deg);
+  width: 93.81%;
+}
+
+.estado-proceso .vector-2 {
+  height: 52.86%;
+  left: 47.14%;
+  position: absolute;
+  top: 47.14%;
+  transform: rotate(90deg);
+  width: 52.86%;
+}
+
+.estado-proceso .icon-wrapper {
+  align-items: flex-start;
+  display: inline-flex;
+  flex-direction: column;
+  left: 87px;
+  position: absolute;
+  top: 47px;
+}
+
+.estado-proceso .icon-2 {
+  height: 36px;
+  position: relative;
+  width: 36px;
+}
+
+.estado-proceso .vector-3 {
+  height: 95.83%;
+  left: 12.41%;
+  position: absolute;
+  top: 4.17%;
+  width: 87.59%;
+}
+
+.estado-proceso .vector-4 {
+  height: 54.17%;
+  left: 4.17%;
+  position: absolute;
+  top: 45.83%;
+  width: 95.83%;
+}
+
+.estado-proceso .progress-wrapper {
+  height: 42px;
+  left: 72px;
+  position: absolute;
+  top: 81px;
+  width: 67px;
+}
+
+.estado-proceso .progress {
+  color: #1e2939;
+  font-family: "Inter", Helvetica;
+  font-size: 42px;
+  font-weight: 400;
+  left: -10px;
+  letter-spacing: 0;
+  line-height: 42px;
+  position: absolute;
+  top: 3px;
+  white-space: nowrap;
+}
+
+.estado-proceso .paragraph-margin {
+  align-items: flex-start;
+  display: inline-flex;
+  flex-direction: column;
+  left: 82px;
+  padding: 6px 0px 0px;
+  position: absolute;
+  top: 123px;
+}
+
+.estado-proceso .subtitle-wrapper {
+  height: 19.5px;
+  position: relative;
+  width: 45.32px;
+}
+
+.estado-proceso .subtitle {
+  color: #99a1af;
+  font-family: "Inter", Helvetica;
+  font-size: 13px;
+  font-weight: 400;
+  left: 0;
+  letter-spacing: 0;
+  line-height: 19.5px;
+  position: absolute;
+  top: 1px;
+  white-space: nowrap;
+}
+
+.estado-proceso .time-remaining-wrapper {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  height: 35px;
+  margin-bottom: -0.5px;
+  padding: 12px 0px 0px;
+  position: relative;
+  width: 191.66px;
+}
+
+.estado-proceso .time-remaining {
+  color: #4a8a4a;
+  font-family: "Inter", Helvetica;
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 22.5px;
+  margin-right: -0.34px;
+  margin-top: -1px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.estado-proceso .span {
+  color: #4a8a4a;
+  font-family: "Inter", Helvetica;
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 22.5px;
+}
+
+.estado-proceso .text-wrapper-2 {
+  font-weight: 600;
+}
+
+.estado-proceso .container-7 {
+  align-items: flex-start;
+  display: flex;
+  gap: 10px;
+  height: 127px;
+  padding: 24px 16px 0px;
+  position: relative;
+  width: 430px;
+}
+
+.estado-proceso .container-8 {
+  align-items: center;
+  background-color: #fff7ed;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px 0px;
+}
+
+.estado-proceso .icon-3 {
+  height: 22px;
+  position: relative;
+  width: 22px;
+}
+
+.estado-proceso .vector-5 {
+  height: 95.83%;
+  left: 29.17%;
+  position: absolute;
+  top: 4.17%;
+  width: 70.83%;
+}
+
+.estado-proceso .temperature-value-wrapper {
+  height: 18px;
+  position: relative;
+  width: 43.38px;
+}
+
+.estado-proceso .text-wrapper-3 {
+  color: #364153;
+  font-family: "Inter", Helvetica;
+  font-size: 18px;
+  font-weight: 500;
+  left: 0;
+  letter-spacing: 0;
+  line-height: 18px;
+  position: absolute;
+  top: 0;
+  white-space: nowrap;
+}
+
+.estado-proceso .temperature-label-wrapper {
+  height: 15px;
+  position: relative;
+  width: 60.16px;
+}
+
+.estado-proceso .text-wrapper-4 {
+  color: #99a1af;
+  font-family: "Inter", Helvetica;
+  font-size: 10px;
+  font-weight: 400;
+  left: 0;
+  letter-spacing: 0;
+  line-height: 15px;
+  position: absolute;
+  top: 1px;
+  white-space: nowrap;
+}
+
+.estado-proceso .container-9 {
+  align-items: center;
+  background-color: #eff6ff;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px 0px;
+}
+
+.estado-proceso .vector-6 {
+  height: 82.08%;
+  left: 8.33%;
+  position: absolute;
+  top: 17.92%;
+  width: 91.67%;
+}
+
+.estado-proceso .vector-7 {
+  height: 91.58%;
+  left: 33.71%;
+  position: absolute;
+  top: 8.42%;
+  width: 66.29%;
+}
+
+.estado-proceso .humidity-value-wrapper {
+  height: 18px;
+  position: relative;
+  width: 39.27px;
+}
+
+.estado-proceso .humidity-label-wrapper {
+  height: 15px;
+  position: relative;
+  width: 45.8px;
+}
+
+.estado-proceso .container-10 {
+  align-items: center;
+  background-color: #fefce8;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px 0px;
+}
+
+.estado-proceso .light-value-wrapper {
+  height: 18px;
+  position: relative;
+  width: 34.77px;
+}
+
+.estado-proceso .light-label-wrapper {
+  height: 15px;
+  position: relative;
+  width: 13.8px;
+}
+
+.estado-proceso .button-wrapper {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  height: 76px;
+  padding: 24px 16px 0px;
+  position: relative;
+  width: 430px;
+}
+
+.estado-proceso .button-label-wrapper {
+  all: unset;
+  align-items: center;
+  align-self: stretch;
+  background-color: #4a8a4a;
+  border-radius: 16px;
+  box-shadow:
+    0px 1px 1px #0000001a,
+    0px 1px 1.5px #0000001a;
+  box-sizing: border-box;
+  display: flex;
+  height: 52px;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+}
+
+.estado-proceso .button-label {
+  color: #ffffff;
+  font-family: "Inter", Helvetica;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 21px;
+  position: relative;
+  text-align: center;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.estado-proceso .navigation {
+  align-items: flex-start;
+  align-self: stretch;
+  background-color: #ffffff;
+  border-color: #f3f4f6;
+  border-top-style: solid;
+  border-top-width: 1px;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+}
+
+.estado-proceso .container-11 {
+  align-items: flex-start;
+  align-self: stretch;
+  display: inline-flex;
+  flex: 0 0 auto;
+  position: relative;
+}
+
+.estado-proceso .button-2 {
+  all: unset;
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 12px 0px;
+}
+
+.estado-proceso .navigation-label-wrapper {
+  height: 15px;
+  position: relative;
+  width: 29.77px;
+}
+
+.estado-proceso .navigation-label {
+  color: #4a8a4a;
+  font-family: "Inter", Helvetica;
+  font-size: 10px;
+  font-weight: 500;
+  left: 0;
+  letter-spacing: 0;
+  line-height: 15px;
+  position: absolute;
+  text-align: center;
+  top: 1px;
+  white-space: nowrap;
+}
+
+.estado-proceso .text-2 {
+  background-color: #4a8a4a;
+  border-radius: 16777200px;
+  height: 3px;
+  left: 56px;
+  position: absolute;
+  top: 0;
+  width: 32px;
+}
+
+.estado-proceso .vector-8 {
+  height: 37.50%;
+  left: 4.17%;
+  position: absolute;
+  top: 62.50%;
+  width: 95.83%;
+}
+
+.estado-proceso .vector-9 {
+  height: 75.00%;
+  left: 4.17%;
+  position: absolute;
+  top: 25.00%;
+  width: 95.83%;
+}
+
+.estado-proceso .vector-10 {
+  height: 87.50%;
+  left: 4.17%;
+  position: absolute;
+  top: 12.50%;
+  width: 95.83%;
+}
+
+.estado-proceso .div-wrapper {
+  height: 15px;
+  position: relative;
+  width: 45.73px;
+}
+
+.estado-proceso .navigation-label-2 {
+  color: #9ca3af;
+  font-family: "Inter", Helvetica;
+  font-size: 10px;
+  font-weight: 500;
+  left: 0;
+  letter-spacing: 0;
+  line-height: 15px;
+  position: absolute;
+  text-align: center;
+  top: 1px;
+  white-space: nowrap;
+}
+
+.estado-proceso .button-3 {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 12px 0px;
+}
+
+.estado-proceso .vector-11 {
+  height: 16.67%;
+  left: 38.62%;
+  position: absolute;
+  top: 83.33%;
+  width: 61.38%;
+}
+
+.estado-proceso .vector-12 {
+  height: 95.83%;
+  left: 8.34%;
+  position: absolute;
+  top: 4.17%;
+  width: 91.66%;
+}
+
+.estado-proceso .alert-count-wrapper {
+  align-items: center;
+  background-color: #ff6900;
+  border-radius: 9999px;
+  display: flex;
+  height: 14px;
+  justify-content: center;
+  left: 14px;
+  position: absolute;
+  top: -4px;
+  width: 14px;
+}
+
+.estado-proceso .alert-count {
+  color: #ffffff;
+  font-family: "Inter", Helvetica;
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 12px;
+  position: relative;
+  text-align: center;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.estado-proceso .text-3 {
+  height: 15px;
+  position: relative;
+  width: 34.03px;
+}

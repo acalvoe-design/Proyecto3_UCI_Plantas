@@ -1,4 +1,4 @@
-from sensor import Sensor
+from class_Sensor import Sensor
 
 
 class SensorHumedad(Sensor):
