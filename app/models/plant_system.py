@@ -63,14 +63,60 @@ class PlantSystem:
     
     def get_system_status(self):
         """Get complete system status"""
+        current_data = self.data_repository.get_current_data()
+        
+        # Map raw data from repository to sensor-friendly format
+        sensors = self._build_sensor_status_from_data(current_data)
+        
         return {
             "active": self.system_active,
-            "current_data": self.data_repository.get_current_data(),
-            "sensors": self.sensor_manager.get_sensor_status(),
+            "current_data": current_data,
+            "sensors": sensors,
             "actuators": self.actuator_manager.get_actuator_status(),
             "plant_config": self.plant_config,
             "timestamp": datetime.now().isoformat()
         }
+    
+    def _build_sensor_status_from_data(self, current_data):
+        """Build sensor status from current data, with mapping from raw field names"""
+        if not current_data:
+            return self.sensor_manager.get_sensor_status()
+        
+        # Mapping of raw field names to sensor IDs with default units
+        field_mapping = {
+            "temperature": ("temperature", "°C"),
+            "dht_humidity": ("air_humidity", "%"),
+            "lux": ("light", "lux"),
+            "soil_percent": ("soil_humidity", "%"),
+        }
+        
+        sensors = {}
+        for sensor_id, sensor_obj in self.sensor_manager.sensors.items():
+            # Find the corresponding field in current_data
+            field_name = None
+            default_unit = ""
+            for raw_field, (mapped_id, unit) in field_mapping.items():
+                if mapped_id == sensor_id and raw_field in current_data:
+                    field_name = raw_field
+                    default_unit = unit
+                    break
+            
+            # Get value from current_data or from sensor object
+            if field_name and field_name in current_data:
+                value = current_data[field_name]
+            else:
+                value = sensor_obj.leer()
+            
+            # Get unit from sensor object if available, otherwise use default
+            unit = getattr(sensor_obj, "unidad", default_unit)
+            
+            sensors[sensor_id] = {
+                "value": value,
+                "unit": unit,
+                "status": "OK"
+            }
+        
+        return sensors
     
     def update_plant_config(self, config_update):
         """Update plant configuration"""

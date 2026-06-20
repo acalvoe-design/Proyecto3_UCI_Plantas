@@ -3,7 +3,6 @@
 #include <Wire.h>
 #include <WiFi.h>
 #include <HTTPClient.h>
-
 // ESP32 Pin Definitions
 #define DHTPIN 4          // DHT22 data pin
 #define DHTTYPE DHT22
@@ -11,17 +10,14 @@
 #define HUMIDIFIER_PIN 13     // Digital output
 #define MOTOR_PIN 14          // PWM capable
 #define LED_PIN 15            // PWM capable
-
+#define BUTTON_PIN 5          // Push button pin (change if needed)
 // WiFi Credentials
 const char* ssid = "A55 de Isa";           // Change this to your WiFi SSID
 const char* password = "Orquidia1783";    // Change this to your WiFi password
-
 // Server Configuration
 const char* serverURL = "http://172.16.98.224:5000/sensor_data";  // Change to your Python app IP/URL
-
 DHT dht(DHTPIN, DHTTYPE);
 Adafruit_VEML7700 veml = Adafruit_VEML7700();
-
 float dhtHumidity = 0;
 float temperature = 0;
 int soilHumidity = 0;
@@ -31,10 +27,9 @@ float TEMP_HIGH = 28.0;
 float LUX_LOW = 200.0;
 int SOIL_DRY_ADC = 300;
 int chipState = 3;
-
 unsigned long lastSendTime = 0;
 const unsigned long sendInterval = 5000;  // Send data every 5 seconds
-
+boolean systemEnabled = true;  // System state variable
 void setup() {
   Serial.begin(115200);
   delay(1000);
@@ -57,6 +52,7 @@ void setup() {
   pinMode(HUMIDIFIER_PIN, OUTPUT);
   pinMode(MOTOR_PIN, OUTPUT);
   pinMode(LED_PIN, OUTPUT);
+  pinMode(BUTTON_PIN, INPUT_PULLUP);  // Button with internal pull-up resistor
   
   digitalWrite(HUMIDIFIER_PIN, LOW);
   digitalWrite(MOTOR_PIN, LOW);
@@ -69,7 +65,6 @@ void setup() {
   
   Serial.println("Iniciando lecturas...\n");
 }
-
 void connectToWiFi() {
   Serial.print("\nConectando a WiFi: ");
   Serial.println(ssid);
@@ -92,7 +87,6 @@ void connectToWiFi() {
     Serial.println("\nNo se pudo conectar a WiFi. Continuando sin conexión...");
   }
 }
-
 void sendDataToPython() {
   if (WiFi.status() != WL_CONNECTED) {
     Serial.println("WiFi no conectado. Intentando reconectar...");
@@ -114,6 +108,7 @@ void sendDataToPython() {
   jsonData += "\"humidifier_state\":" + String(chipState) + ",";
   jsonData += "\"motor_on\":" + String(digitalRead(MOTOR_PIN)) + ",";
   jsonData += "\"led_on\":" + String(digitalRead(LED_PIN)) + ",";
+  jsonData += "\"system_enabled\":" + String(systemEnabled) + ",";
   jsonData += "\"timestamp\":" + String(millis());
   jsonData += "}";
   
@@ -138,9 +133,11 @@ void sendDataToPython() {
   
   http.end();
 }
-
 void loop() {
-  // Read sensors
+  // Check button state (LOW = pressed because of INPUT_PULLUP)
+  systemEnabled = (digitalRead(BUTTON_PIN) == LOW);
+  
+  // Read sensors (always, for monitoring)
   float hum = dht.readHumidity();
   float temp = dht.readTemperature();
   
@@ -154,39 +151,50 @@ void loop() {
   
   lux = veml.readLux();
   
-  // Control logic
-  int targetState = 3;
-  if (soilHumidity < 400) {
-    targetState = 2;
-  }
-  
-  if (targetState != chipState) {
-    int pulsesNeeded = (targetState - chipState + 3) % 3;
-    if (pulsesNeeded == 0) pulsesNeeded = 3;
-    
-    for (int i = 0; i < pulsesNeeded; i++) {
-      delay(100);
-      digitalWrite(HUMIDIFIER_PIN, HIGH);
-      delay(500);
-      digitalWrite(HUMIDIFIER_PIN, LOW);
+  // CONTROL LOGIC - Only runs if system is enabled
+  if (systemEnabled) {
+    // Control logic
+    int targetState = 3;
+    if (soilHumidity < 400) {
+      targetState = 2;
     }
-    chipState = targetState;
-  }
-  
-  if (temp > TEMP_HIGH) {
-    digitalWrite(MOTOR_PIN, HIGH);
+    
+    if (targetState != chipState) {
+      int pulsesNeeded = (targetState - chipState + 3) % 3;
+      if (pulsesNeeded == 0) pulsesNeeded = 3;
+      
+      for (int i = 0; i < pulsesNeeded; i++) {
+        delay(100);
+        digitalWrite(HUMIDIFIER_PIN, HIGH);
+        delay(500);
+        digitalWrite(HUMIDIFIER_PIN, LOW);
+      }
+      chipState = targetState;
+    }
+    
+    if (temp > TEMP_HIGH) {
+      digitalWrite(MOTOR_PIN, HIGH);
+    } else {
+      digitalWrite(MOTOR_PIN, LOW);
+    }
+    
+    if (lux < LUX_LOW) {
+      digitalWrite(LED_PIN, HIGH);
+    } else {
+      digitalWrite(LED_PIN, LOW);
+    }
   } else {
+    // System is OFF - turn off all actuators
+    digitalWrite(HUMIDIFIER_PIN, LOW);
     digitalWrite(MOTOR_PIN, LOW);
-  }
-  
-  if (lux < LUX_LOW) {
-    digitalWrite(LED_PIN, HIGH);
-  } else {
     digitalWrite(LED_PIN, LOW);
+    chipState = 3;  // Reset humidifier state
   }
   
   // Print to Serial
-  Serial.print("ADC: ");
+  Serial.print("BUTTON: ");
+  Serial.print(systemEnabled ? "ON" : "OFF");
+  Serial.print(" | ADC: ");
   Serial.print(soilHumidity);
   Serial.print(" | Soil%: ");
   Serial.print(soilPercent);
